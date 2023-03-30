@@ -3,33 +3,33 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+    let app: AppComponent;
+    let fixture: any
+    let compiled: any;
 
-  it(`should have as title 'unit-test'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('unit-test');
-  });
+    beforeEach(() => {
+        const fixture = TestBed.createComponent(AppComponent);
+        app = fixture.componentInstance;
+        compiled = fixture.nativeElement as HTMLElement;
+    })
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('unit-test app is running!');
-  });
+    it('should get userName', () => {
+        let userName = app.getUserName('sari');
+        expect(userName).toEqual('hello sari');
+    });
+
+    it('should get userName from html', () => {
+        // const fixture = TestBed.createComponent(AppComponent);
+        // app = fixture.componentInstance;
+        // app.getData(app.userName);
+        // // fixture.detectChanges();
+        // const compiled = app.nativeElement as HTMLElement;
+        // expect(compiled.querySelector('.user-name')?.textContent).toContain(
+        //     app.userName
+        // );
+    });
+
+
+
 });

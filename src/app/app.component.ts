@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'unit-test';
+
+  userName :string = '';
+
+  getUserName(name:string){
+    return `hello ${name}`;
+  }
+
+  getData(name:string){
+    this.userName = name;
+  }
 }
